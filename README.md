@@ -1,129 +1,129 @@
-# E-Commerce-Database-System
+## E-Commerce-Database-System
 
-## Overview
-This database system is designed to manage an e-commerce platform. It covers various aspects such as user management, product cataloging, orders, payments, reviews, addresses, and inventory management. The schema consists of ten interrelated tables, along with stored procedures and views to facilitate data operations and reporting.
+### Overview
+The E-Commerce-Database-System is crafted to manage a comprehensive e-commerce platform, encompassing user management, product cataloging, order processing, payment handling, customer reviews, address management, and inventory control. Its schema comprises ten interconnected tables, complemented by stored procedures and views that streamline data operations and reporting.
 
-## Database Tables and Relationships
+### Database Tables and Relationships
 
-### Users Table
-- **Purpose**: To store user account information.
+#### Users Table
+- **Purpose**: Stores user account details.
 - **Primary Key**: `UserID`
 - **Related Tables**: Orders, Reviews, Addresses
 
-### Categories Table
-- **Purpose**: To store product categories.
+#### Categories Table
+- **Purpose**: Manages product categories.
 - **Primary Key**: `CategoryID`
 - **Related Tables**: Products
 
-### Suppliers Table
-- **Purpose**: To store supplier information.
+#### Suppliers Table
+- **Purpose**: Stores supplier information.
 - **Primary Key**: `SupplierID`
 - **Related Tables**: Products
 
-### Products Table
-- **Purpose**: To store product details.
+#### Products Table
+- **Purpose**: Contains detailed product information.
 - **Primary Key**: `ProductID`
 - **Related Tables**: OrderDetails, Reviews, Inventory
 - **Foreign Keys**: `CategoryID`, `SupplierID`
 
-### Orders Table
-- **Purpose**: To store order information.
+#### Orders Table
+- **Purpose**: Records order details.
 - **Primary Key**: `OrderID`
 - **Related Tables**: OrderDetails, Payments
 - **Foreign Key**: `UserID`
 
-### OrderDetails Table
-- **Purpose**: To store detailed information about each product in an order.
+#### OrderDetails Table
+- **Purpose**: Stores specifics of each product within an order.
 - **Primary Key**: `OrderDetailID`
 - **Related Tables**: Orders, Products
 - **Foreign Keys**: `OrderID`, `ProductID`
 
-### Payments Table
-- **Purpose**: To store payment information for orders.
+#### Payments Table
+- **Purpose**: Manages payment transactions.
 - **Primary Key**: `PaymentID`
 - **Related Tables**: Orders
 - **Foreign Key**: `OrderID`
 
-### Reviews Table
-- **Purpose**: To store user reviews for products.
+#### Reviews Table
+- **Purpose**: Stores customer reviews on products.
 - **Primary Key**: `ReviewID`
 - **Related Tables**: Products, Users
 - **Foreign Keys**: `ProductID`, `UserID`
 
-### Addresses Table
-- **Purpose**: To store addresses associated with users.
+#### Addresses Table
+- **Purpose**: Records user addresses.
 - **Primary Key**: `AddressID`
 - **Related Tables**: Users
 - **Foreign Key**: `UserID`
 
-### Inventory Table
-- **Purpose**: To store inventory levels for products.
+#### Inventory Table
+- **Purpose**: Tracks product inventory levels.
 - **Primary Key**: `InventoryID`
 - **Related Tables**: Products
 - **Foreign Key**: `ProductID`
 
-## Stored Procedures
+### Stored Procedures
 
-### GetUserOrders
-- **Purpose**: Retrieve orders for a specific user.
+#### GetUserOrders
+- **Purpose**: Retrieves orders for a specific user.
 - **Parameters**: `@userId INT`
 
-### GetProductInventory
-- **Purpose**: Retrieve the inventory quantity for a specific product.
+#### GetProductInventory
+- **Purpose**: Fetches the inventory quantity for a specific product.
 - **Parameters**: `@productId INT`
 
-### AddProductReview
-- **Purpose**: Add a new review for a product.
+#### AddProductReview
+- **Purpose**: Adds a new review for a product.
 - **Parameters**: `@productId INT`, `@userId INT`, `@rating INT`, `@comment TEXT`
 
-### UpdateOrderStatus
-- **Purpose**: Update the status of an order.
+#### UpdateOrderStatus
+- **Purpose**: Updates the status of an order.
 - **Parameters**: `@orderId INT`, `@status VARCHAR(50)`
 
-### AddProduct
-- **Purpose**: Add a new product to the catalog.
+#### AddProduct
+- **Purpose**: Adds a new product to the catalog.
 - **Parameters**: `@Name VARCHAR(100)`, `@Description TEXT`, `@Price DECIMAL(10, 2)`, `@CategoryID INT`, `@SupplierID INT`
 
-### UpdateProduct
-- **Purpose**: Update the details of an existing product.
+#### UpdateProduct
+- **Purpose**: Updates details of an existing product.
 - **Parameters**: `@ProductID INT`, `@Name VARCHAR(100)`, `@Description TEXT`, `@Price DECIMAL(10, 2)`, `@CategoryID INT`, `@SupplierID INT`
 
-### DeleteProduct
-- **Purpose**: Delete a product from the catalog.
+#### DeleteProduct
+- **Purpose**: Removes a product from the catalog.
 - **Parameters**: `@ProductID INT`
 
-### AddOrder
-- **Purpose**: Create a new order.
+#### AddOrder
+- **Purpose**: Creates a new order.
 - **Parameters**: `@UserID INT`, `@TotalAmount DECIMAL(10, 2)`
 
-### AddOrderDetail
-- **Purpose**: Add a detail to an existing order.
+#### AddOrderDetail
+- **Purpose**: Adds a detail to an existing order.
 - **Parameters**: `@OrderID INT`, `@ProductID INT`, `@Quantity INT`, `@Price DECIMAL(10, 2)`
 
-## Views
+### Views
 
-### UserOrderSummary
-- **Purpose**: Provides a summary of user orders, showing username, order ID, order date, and total amount.
+#### UserOrderSummary
+- **Purpose**: Provides a summary of user orders, displaying username, order ID, order date, and total amount.
 - **Base Tables**: Users, Orders
 
-### ProductReviews
+#### ProductReviews
 - **Purpose**: Lists product reviews, showing product name, rating, and comments.
 - **Base Tables**: Products, Reviews
 
-### SupplierProducts
-- **Purpose**: Lists all products supplied by each supplier, showing supplier name, product ID, product name, and price.
+#### SupplierProducts
+- **Purpose**: Lists products supplied by each supplier, showing supplier name, product ID, product name, and price.
 - **Base Tables**: Suppliers, Products
 
-### OrderDetailsSummary
-- **Purpose**: Provides a summary of order details including order ID, order date, username, product name, quantity, and price.
+#### OrderDetailsSummary
+- **Purpose**: Provides a detailed summary of order details including order ID, order date, username, product name, quantity, and price.
 - **Base Tables**: Orders, OrderDetails, Products, Users
 
-## Usage
-- **User Management**: Handles user registrations, storing credentials, and contact information.
-- **Product Management**: Organizes products into categories, tracks suppliers, manages product details, and inventory levels.
-- **Order Processing**: Records orders, order details, and payment information. Allows updating order statuses.
-- **Customer Feedback**: Collects and stores reviews for products.
-- **Address Management**: Stores multiple addresses for users for order delivery purposes.
-- **Reporting**: Provides views for summarizing orders, reviews, supplier products, and detailed order information.
+### Usage
+- **User Management**: Facilitates user registration, credential storage, and contact details.
+- **Product Management**: Organizes products into categories, manages suppliers, tracks product details, and monitors inventory.
+- **Order Processing**: Records orders, manages order details, tracks payment transactions, and updates order statuses.
+- **Customer Feedback**: Captures and stores product reviews provided by customers.
+- **Address Management**: Maintains multiple addresses per user for accurate order deliveries.
+- **Reporting**: Utilizes views to generate reports summarizing orders, product reviews, supplier products, and detailed order information.
 
-This database system is designed to be robust, ensuring data integrity through the use of primary and foreign keys, and facilitating efficient data retrieval and manipulation through stored procedures and views.
+This database system ensures robust data integrity through primary and foreign key relationships, supporting efficient data retrieval and manipulation via stored procedures and views.
