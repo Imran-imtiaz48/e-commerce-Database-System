@@ -566,5 +566,5 @@ BEGIN
     INSERT INTO OrderDetails (OrderID, ProductID, Quantity, Price)
     VALUES (@OrderID, @ProductID, @Quantity, @Price);
 END;
-
+Go
 
