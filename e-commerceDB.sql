@@ -120,7 +120,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
--- Create Views
+-- Create View
 
 -- UserOrderSummary: Summary of user orders
 CREATE VIEW [dbo].[UserOrderSummary] AS
