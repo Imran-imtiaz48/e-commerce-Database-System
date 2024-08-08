@@ -1,7 +1,7 @@
 USE [master]
 GO
 
--- Create Database
+-- Create Db
 CREATE DATABASE [e-commerce_DB]
 ON PRIMARY 
 ( NAME = N'e-commerce_DB', FILENAME = N'C:\Data\e-commerce_DB.mdf', SIZE = 8192KB, MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
