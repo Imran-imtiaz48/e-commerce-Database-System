@@ -1,7 +1,7 @@
 ## E-Commerce Database System
 
 ### Overview
-This robust database system powers a full-featured e-commerce platform. It handles everything from user accounts and product listings to order processing, payments, reviews, and inventory. The system is built with ten interconnected tables and uses stored procedures and views for efficient data management and reporting.
+The robust database system powers a full-featured e-commerce platform. It handles everything from user accounts and product listings to order processing, payments, reviews, and inventory. The system is built with ten interconnected tables and uses stored procedures and views for efficient data management and reporting.
 
 ### Database Tables and Relationships
 
