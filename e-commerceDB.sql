@@ -1,7 +1,7 @@
 USE [master]
 GO
 
--- Create Db
+-- Create Database
 CREATE DATABASE [e-commerce_DB]
 ON PRIMARY 
 ( NAME = N'e-commerce_DB', FILENAME = N'C:\Data\e-commerce_DB.mdf', SIZE = 8192KB, MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
@@ -120,7 +120,7 @@ GO
 CREATE TABLE [dbo].[Addresses](
     [AddressID] [int] IDENTITY(1,1) NOT NULL,
     [UserID] [int] NOT NULL,
-      NULL,
+      NOT NULL,
       NULL,
       NULL,
       NULL,
@@ -237,3 +237,4 @@ BEGIN
     VALUES (@UserID, @OrderDate, @TotalAmount, 'Pending');
 END;
 GO
+
