@@ -1,7 +1,7 @@
 ## E-Commerce-Database-System
 
 ### Overview
-The E-Commerce-Database-System is crafted to manage a comprehensive e-commerce platform, encompassing user management, product cataloging, order processing, payment handling, customer reviews, address management, and inventory control. Its schema comprises ten interconnected tables, complemented by stored procedures and views that streamline data operations and reporting.
+This E-Commerce-Database-System is crafted to manage a comprehensive e-commerce platform, encompassing user management, product cataloging, order processing, payment handling, customer reviews, address management, and inventory control. Its schema comprises ten interconnected tables, complemented by stored procedures and views that streamline data operations and reporting.
 
 ### Database Tables and Relationships
 
